@@ -14,7 +14,7 @@ public class Calculator extends JFrame {
 	
 	public Calculator() {
 		JFrame main = new JFrame("Calculator");
-		main.setSize(320, 240);
+		main.setSize(320, 265);
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main.setLayout(new FlowLayout());
 		JLabel output = new JLabel("");
@@ -45,6 +45,9 @@ public class Calculator extends JFrame {
 		JButton point = new JButton(".");
 		JButton copy = new JButton("Copy");
 		JButton paste = new JButton("Paste");
+		JLabel error = new JLabel("");
+		error.setPreferredSize(new Dimension(300, 25));
+		error.setForeground(Color.RED);
 		main.add(outputbox);
 		main.add(clear);
 		main.add(copy);
@@ -65,6 +68,7 @@ public class Calculator extends JFrame {
 		main.add(point);
 		main.add(division);
 		main.add(equals);
+		main.add(error);
 		main.setVisible(true);
 		
 		equals.addActionListener(new ActionListener() {
@@ -113,7 +117,12 @@ public class Calculator extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				copyBuffer = Double.parseDouble(output.getText());
+				try {
+					copyBuffer = Double.parseDouble(output.getText());
+				}
+				catch (NumberFormatException exception) {
+					error.setText("You can only copy numbers!");
+				}
 			}
 		});
 		paste.addActionListener(new ActionListener() {
@@ -142,50 +151,71 @@ public class Calculator extends JFrame {
 				operation.setText("");
 				num1Label.setText("");
 				action = "";
+				error.setText("");
 			}
 		});
 		addition.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				action = "add";
-				num1 = Double.parseDouble(output.getText());
-				num1Label.setText(Double.toString(num1));
-				output.setText("");
-				operation.setText("+");
+				try {
+					action = "add";
+					num1 = Double.parseDouble(output.getText());
+					num1Label.setText(Double.toString(num1));
+					output.setText("");
+					operation.setText("+");
+				}
+				catch (Exception ae) {
+					error.setText("You must enter a number");
+				}
 			}
 		});		
 		subtraction.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				action = "subtract";
-				num1 = Double.parseDouble(output.getText());
-				num1Label.setText(Double.toString(num1));
-				output.setText("");
-				operation.setText("-");
+				try {
+					action = "subtract";
+					num1 = Double.parseDouble(output.getText());
+					num1Label.setText(Double.toString(num1));
+					output.setText("");
+					operation.setText("-");
+				}
+				catch (Exception ae) {
+					error.setText("You must enter a number");
+				}
 			}
 		});		
 		division.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				action = "divide";
-				num1 = Double.parseDouble(output.getText());
-				num1Label.setText(Double.toString(num1));
-				output.setText("");
-				operation.setText("/");
+				try {
+					action = "divide";
+					num1 = Double.parseDouble(output.getText());
+					num1Label.setText(Double.toString(num1));
+					output.setText("");
+					operation.setText("/");
+				}
+				catch (Exception ae) {
+					error.setText("You must enter a number");
+				}
 			}
 		});		
 		multiplication.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				action = "multiply";
-				num1 = Double.parseDouble(output.getText());
-				num1Label.setText(Double.toString(num1));
-				output.setText("");
-				operation.setText("x");
+				try {
+					action = "multiply";
+					num1 = Double.parseDouble(output.getText());
+					num1Label.setText(Double.toString(num1));
+					output.setText("");
+					operation.setText("x");
+				}
+				catch (Exception ae) {
+					error.setText("You must enter a number");
+				}
 			}
 		});
 		zeroButton.addActionListener(new ActionListener() {
