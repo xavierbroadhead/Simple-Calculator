@@ -13,12 +13,12 @@ public class Calculator extends JFrame {
 	private static double copyBuffer;
 	
 	private JPanel panel1;
-        private JPanel panel2;
-        private JPanel panel3;
-        private JPanel panel4;
-        private JPanel panel5;
-        private JPanel panel6;
-	
+    private JPanel panel2;
+    private JPanel panel3;
+    private JPanel panel4;
+    private JPanel panel5;
+    private JPanel panel6;
+
 	public Calculator() {
 		JFrame main = new JFrame("Calculator");
 		main.setSize(320, 265);
@@ -29,11 +29,13 @@ public class Calculator extends JFrame {
 		JLabel operation = new JLabel("");
 		JLabel num1Label = new JLabel("");
 		JPanel outputbox = new JPanel();
+		
 		outputbox.setBackground(Color.WHITE);
 		outputbox.setPreferredSize(new Dimension(300, 25));
 		outputbox.add(num1Label);
 		outputbox.add(operation);
 		outputbox.add(output);
+		
 		JButton zeroButton = new JButton("0");
 		JButton oneButton = new JButton("1");
 		JButton twoButton = new JButton("2");
@@ -54,9 +56,10 @@ public class Calculator extends JFrame {
 		JButton copy = new JButton("Copy");
 		JButton paste = new JButton("Paste");
 		JButton sinButton = new JButton("sin");
-                JButton cosButton = new JButton("cos");
-                JButton tanButton = new JButton("tan");
-		JLabel error = new JLabel("");
+        JButton cosButton = new JButton("cos");
+        JButton tanButton = new JButton("tan");
+		
+        JLabel error = new JLabel("");
 		error.setPreferredSize(new Dimension(300, 25));
 		error.setForeground(Color.RED);
 		main.add(outputbox);
@@ -104,7 +107,11 @@ public class Calculator extends JFrame {
 		
 		main.add(error);
 		main.setVisible(true);
-		
+
+		//centered calculator
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		main.setLocation(dim.width/2-main.getSize().width/2, dim.height/2-main.getSize().height/2);
+
 		equals.addActionListener(new ActionListener() {
 
 			@Override
