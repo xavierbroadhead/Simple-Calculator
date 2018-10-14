@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 @SuppressWarnings("serial")
 public class Calculator extends JFrame {
 	
@@ -18,7 +19,7 @@ public class Calculator extends JFrame {
     private JPanel panel4;
     private JPanel panel5;
     private JPanel panel6;
-
+ 
 	public Calculator() {
 		JFrame main = new JFrame("Calculator");
 		main.setSize(320, 265);
@@ -60,6 +61,7 @@ public class Calculator extends JFrame {
         JButton tanButton = new JButton("tan");
 		
         JLabel error = new JLabel("");
+ 
 		error.setPreferredSize(new Dimension(300, 25));
 		error.setForeground(Color.RED);
 		main.add(outputbox);
@@ -98,12 +100,12 @@ public class Calculator extends JFrame {
 		panel4.add(nineButton);
 		panel4.add(multiplication);
 		panel5.add(point);
-                panel5.add(zeroButton);
+        panel5.add(zeroButton);
 		panel5.add(division);
 		panel5.add(equals);
-                panel6.add(sinButton);
-                panel6.add(cosButton);
-                panel6.add(tanButton);
+        panel6.add(sinButton);
+        panel6.add(cosButton);
+        panel6.add(tanButton);
 		
 		main.add(error);
 		main.setVisible(true);
@@ -322,7 +324,7 @@ public class Calculator extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (output.getText() == "0") output.setText("0");
+				if (output.getText() == null || output.getText() == "" || Integer.parseInt(output.getText()) == 0) output.setText("0");
 				else output.setText(output.getText() + "0");
 			}
 		});
