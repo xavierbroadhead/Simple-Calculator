@@ -12,6 +12,8 @@ I also added a copy/paste function, as it's something I realised a lot of calcul
 # A few work-ons when I have time
 - [x] At the moment, you can type as many 0's as you like when there is nothing already input. This isn't super important, but it's a minor detail I'd like to fix in the future, as "00000" is the same as "0". I'm not sure how this works in Java, as the check I tried to add to counter this didn't work. Potentially something to do with holding an integer in a string. 
 
+- [ ] Refactor into a more object oriented paradigm.
+
 - [ ] I would like to add multiple operation calculations, that are only executed when the equals button is pressed, e.g. "23 x 4 + 2 / 3". Order of arithmetic is important to get perfect in this case, and it would be interesting to work out the algorithm for this. 
 
 - [ ] I would also like to add capability for copying functions, for example copying "46 x 2" to use this in a separate calculation. 
