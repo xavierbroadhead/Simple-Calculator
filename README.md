@@ -1,3 +1,5 @@
+## The best way to run the project is to use the Eclipse IDE, because I'll include Intellij.
+
 # Simple Calculator
 A simple calculator app I made to practice using Java Swing after my first assignment using Swing. The assignment was a struggle as we hadn't been taught to use Swing yet, and I didn't like being thrown in the deep end, so I developed this in my spare time to ensure I was comfortable developing more complex GUIs in the future. 
 
